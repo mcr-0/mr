@@ -40,10 +40,10 @@ export default function LandingPage() {
         width={400}
         height={300}
         alt="image"
-        className="px-12 py-2"
+        className="mx-auto px-12 py-2"
         priority
       ></Image>
-      <h1 className="px-4 text-center text-2xl font-bold text-neutral-800">
+      <h1 className="px-4 text-center text-2xl font-semibold text-neutral-800">
         Complete (2) Steps To Receive Access
       </h1>
       <div className="flex w-full flex-wrap gap-4 p-4 md:flex-nowrap">

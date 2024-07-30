@@ -74,7 +74,7 @@ const OffersPage = () => {
   }, [loading, offer, error]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="p-8 text-center text-xl">Loading...</div>;
   }
 
   if (error) {

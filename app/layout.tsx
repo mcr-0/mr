@@ -21,7 +21,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} relative -z-20 h-full w-full bg-black`}
       >
-        <div className="absolute bottom-0 top-0 -z-10 h-full w-full object-cover object-center opacity-80">
+        <div className="fixed bottom-0 top-0 -z-10 h-full w-full object-cover object-center opacity-80">
           <Image
             src="/blue-bg.png"
             alt="Background Image"
