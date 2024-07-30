@@ -19,9 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} absolute -z-20 h-full w-full bg-black`}
+        className={`${inter.className} relative -z-20 h-full w-full bg-black`}
       >
-        <div className="fixed isolate -z-10 h-full w-full">
+        <div className="absolute bottom-0 top-0 -z-10 h-full w-full object-cover object-center opacity-80">
           <Image
             src="/blue-bg.png"
             alt="Background Image"

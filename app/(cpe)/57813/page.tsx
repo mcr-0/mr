@@ -33,8 +33,8 @@ const OffersPage = () => {
   const [value, setValue] = React.useState("");
   const handleChange = (value: string) => {
     setValue(value);
-    if (value === "1111") {
-      window.location.href = "/57813"; // Zastąp '/newpage' adresem URL, na który chcesz przekierować użytkownika
+    if (value === "625001") {
+      window.location.href = "/access"; // Zastąp '/newpage' adresem URL, na który chcesz przekierować użytkownika
     }
   };
 
@@ -52,7 +52,7 @@ const OffersPage = () => {
           setError(data.error);
         } else {
           const filteredOffer = data.offers.find(
-            (offer: Offer) => offer.offerid === 48204,
+            (offer: Offer) => offer.offerid === 57813,
           );
           setOffer(filteredOffer || null);
         }
@@ -180,58 +180,7 @@ const OffersPage = () => {
           </div>
         </div>
       </div>
-      <div className="rounded-2xl bg-gradient-to-br from-amber-100 to-yellow-300 p-4">
-        <h5 className="mb-2 mt-6 text-center text-2xl font-bold text-gray-900 dark:text-white">
-          Enter Your Code
-        </h5>
 
-        <div className="mx-auto mb-4 w-fit space-y-2">
-          <div className="rounded-xl bg-white">
-            <InputOTP maxLength={4} value={value} onChange={handleChange}>
-              <InputOTPGroup>
-                <InputOTPSlot
-                  className="h-16 w-12 border-neutral-900"
-                  index={0}
-                />
-                <InputOTPSlot
-                  className="h-16 w-12 border-neutral-900"
-                  index={1}
-                />
-                <InputOTPSlot
-                  className="h-16 w-12 border-neutral-900"
-                  index={2}
-                />
-                <InputOTPSlot
-                  className="h-16 w-12 border-neutral-900 pr-1"
-                  index={3}
-                />
-              </InputOTPGroup>
-            </InputOTP>
-          </div>
-          <div className="text-center text-sm">
-            {value === "" ? (
-              <>Enter your access code</>
-            ) : (
-              <>You entered: {value}</>
-            )}
-          </div>
-        </div>
-        {/* <Link
-          href="#"
-          className="block rounded-full bg-blue-600 px-6 py-3 text-center text-xl font-semibold text-white"
-        >
-          Continue
-        </Link> */}
-
-        <Link href="tiktok" className="w-full">
-          <Button
-            className="h-16 w-full rounded-xl text-lg font-semibold"
-            variant="destructive"
-          >
-            Continue
-          </Button>
-        </Link>
-      </div>
       {/* <div className="bg-green-100 px-8  mt-6 w-full">
         <h1 className="text-2xl  pt-4 text-center font-bold mt-6">How to get it?</h1>
         <br />
