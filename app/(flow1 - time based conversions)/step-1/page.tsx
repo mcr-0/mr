@@ -164,7 +164,7 @@ const OffersPage = () => {
         </span>
       </div>
       <p className="pt-4 text-center text-xl font-bold text-green-500">
-        You're eligible
+        You&quot;re eligible
       </p>
 
       <h3 className="mb-4 mt-4 text-left text-2xl font-semibold text-zinc-900">
