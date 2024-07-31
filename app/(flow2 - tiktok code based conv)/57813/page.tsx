@@ -3,13 +3,11 @@ import { useEffect, useState } from "react";
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
-
 import { Button } from "@/components/ui/button";
 
 type Offer = {
@@ -52,7 +50,7 @@ const OffersPage = () => {
           setError(data.error);
         } else {
           const filteredOffer = data.offers.find(
-            (offer: Offer) => offer.offerid === 57813,
+            (offer: Offer) => offer.boosted === true,
           );
           setOffer(filteredOffer || null);
         }
@@ -100,7 +98,7 @@ const OffersPage = () => {
           ></Image>
 
           <h5 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
-            Create A TikTok Account & Follow Us!
+            {offer.adcopy}
           </h5>
           <p className="text-base leading-relaxed text-gray-800 sm:text-lg dark:text-gray-400">
             1) Create A New Account
@@ -146,7 +144,7 @@ const OffersPage = () => {
                 ></path>
               </svg>
               <div className="text-left rtl:text-right">
-                <div className="mb-1 text-xs">Download TikTok</div>
+                <div className="mb-1 text-xs">Download </div>
                 <div className="-mt-1 font-sans text-sm font-semibold">
                   App Store
                 </div>
@@ -180,16 +178,6 @@ const OffersPage = () => {
           </div>
         </div>
       </div>
-
-      {/* <div className="bg-green-100 px-8  mt-6 w-full">
-        <h1 className="text-2xl  pt-4 text-center font-bold mt-6">How to get it?</h1>
-        <br />
-        <p>1. Create a TikTok account if you don't have it already.</p>
-        <p>2. Search our profile @ONLYFORG</p>
-        <p>3. Follow us</p>
-        <p>4. Send us a message "CODE" to get your unique access code.</p>
-        <p>5. Enter your access code above.</p>
-      </div> */}
     </div>
   );
 };

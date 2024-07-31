@@ -96,7 +96,7 @@ const OffersPage = () => {
             alt="TikTok"
             width={128}
             height={128}
-            className="mx-auto my-4 -mt-12 h-24 w-24 rounded-xl border-4 border-white"
+            className="mx-auto my-4 -mt-12 h-24 w-24 rounded-xl border-4 border-white bg-white"
           ></Image>
 
           <h5 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">

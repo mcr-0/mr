@@ -21,18 +21,18 @@ export default function RootLayout({
       <body
         className={`${inter.className} relative -z-20 h-full w-full bg-black`}
       >
-        <div className="fixed bottom-0 top-0 -z-10 h-full w-full object-cover object-center opacity-80">
+        <div className="fixed bottom-0 left-0 right-0 -z-10 h-full w-full object-cover object-center opacity-80">
           <Image
             src="/blue-bg.png"
             alt="Background Image"
-            className="h-full w-full object-cover opacity-70"
+            className="h-full w-full object-cover opacity-100"
             width={1907}
             height={877}
             priority
           ></Image>
         </div>
 
-        <header className="mx-auto max-w-7xl py-4 text-center sm:px-6 lg:px-8">
+        <header className="mx-auto max-w-7xl py-1 text-center sm:px-6 lg:px-8">
           <div className="flex items-center justify-center space-x-2 text-center text-xl text-white">
             <div className="">
               <span className="animate-pulse">Status: </span>

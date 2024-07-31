@@ -43,21 +43,22 @@ export default function LandingPage() {
         className="mx-auto px-12 py-2"
         priority
       ></Image>
-      <h1 className="px-4 text-center text-2xl font-semibold text-neutral-800">
-        Complete (2) Steps To Receive Access
+      <h1 className="px-0 text-center text-2xl font-bold text-neutral-800">
+        Simply, complete two <u>quick and easy steps</u> to receive your reward
+        access
       </h1>
       <div className="flex w-full flex-wrap gap-4 p-4 md:flex-nowrap">
         <div className="grid w-full max-w-sm items-center gap-1.5">
           <Input
             type="text"
             id="email"
-            placeholder="Enter username..."
-            className="h-16 w-full rounded-2xl bg-white text-lg"
+            placeholder="Epic username..."
+            className="h-16 w-full rounded-2xl border-2 border-neutral-300 bg-white text-center text-lg font-bold text-neutral-800"
           />
         </div>
-        <Link href="tiktok" className="w-full">
+        <Link href="step-1" className="w-full">
           <Button
-            className="h-16 w-full rounded-xl text-lg font-semibold"
+            className="h-16 w-full rounded-2xl text-lg font-bold"
             variant="destructive"
           >
             Get Started <MoveRight className="ml-2 h-5 w-5" />
