@@ -237,7 +237,7 @@ const OffersPage = () => {
             {completedTasks === 1 && (
               <div className="w-full">
                 <p className="text-md py-2">
-                  Click the button below once you've completed the required
+                  Click the button below once you&quot;ve completed the required
                   level.
                 </p>
                 <Link
