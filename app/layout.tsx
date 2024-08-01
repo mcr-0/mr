@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
 import * as React from "react";
-
+import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,28 +19,39 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} relative -z-20 h-full w-full bg-black`}
+        className={`${inter.className} relative -z-20 h-full w-full bg-black bg-gradient-to-r from-neutral-900 via-blue-800 to-neutral-900`}
       >
-        <div className="fixed bottom-0 left-0 right-0 -z-10 h-full w-full object-cover object-center opacity-80">
-          <Image
+        <div className="fixed bottom-0 left-0 right-0 -z-10 h-full w-full object-cover object-center opacity-100">
+          {/* <Image
             src="/blue-bg.png"
             alt="Background Image"
             className="h-full w-full object-cover opacity-100"
             width={1907}
             height={877}
             priority
-          ></Image>
+          ></Image> */}
         </div>
-
-        <header className="mx-auto max-w-7xl py-1 text-center sm:px-6 lg:px-8">
+        <div className="fixed bottom-0 left-0 right-0 z-10 h-20 w-full bg-gradient-to-t from-black to-black/0"></div>
+        <header className="mx-auto max-w-7xl bg-gradient-to-b from-black to-black/0 py-1 text-center sm:px-6 lg:px-8">
+          <Link href="/" className="mx-auto block w-16 shadow-xl">
+            <Image
+              src="/logo.jpg"
+              height={400}
+              width={600}
+              alt="logo"
+              className="h-full w-full rounded-md object-cover"
+            ></Image>
+          </Link>
           <div className="flex items-center justify-center space-x-2 text-center text-xl text-white">
             <div className="">
               <span className="animate-pulse">Status: </span>
-              <span className="font-semibold text-[#8FFF00]">Available!</span>
+              <span className="font-semibold text-orange-400">
+                Limited spots left
+              </span>
             </div>
             <svg
-              width="32"
-              height="32"
+              width="24"
+              height="24"
               viewBox="0 0 20 20"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -53,18 +64,43 @@ export default function RootLayout({
               />
             </svg>
           </div>
-          <h1 className="text-4xl font-bold text-white">Get Access Now!</h1>
-          <p className="mt-2 text-xs uppercase text-gray-100">
-            *Access Upon completion 2 steps.
+
+          <h1 className="bg-gradient-to-r from-blue-200 to-blue-700 bg-clip-text text-5xl font-black tracking-tighter text-transparent">
+            Get Access ^{" "}
+          </h1>
+          <h1 className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-xl font-bold leading-8 tracking-tighter text-transparent">
+            <span className="">To Deals And Promos Now!</span>
+          </h1>
+
+          <p className="mt-0 text-xs font-semibold uppercase text-neutral-200">
+            ^Upon completion two steps
           </p>
         </header>
         <div className="relative p-4">
-          <div className="m-auto w-full max-w-xl items-center justify-center rounded-3xl bg-white p-2 shadow-2xl">
+          <div className="isolate w-full max-w-xl items-center justify-center rounded-3xl bg-white/70 p-2 shadow-lg ring-1 ring-black/5 backdrop-blur-md">
             {children}
           </div>
         </div>
-        <p className="pb-12 text-center text-xs text-gray-100">
-          By continuing you agree with Terms & Privacy Policy.
+        <p className="px-4 pb-20 text-center text-xs text-neutral-400">
+          We are not affiliated with any of the games or companies shown on this
+          website. Use of any logos or trademarks are for reference purposes
+          only. By using the website, you agree to our{" "}
+          <Link
+            href="/terms"
+            target="_blank"
+            className="text-neutral-300 underline"
+          >
+            Terms
+          </Link>{" "}
+          and{" "}
+          <Link
+            href="/privacy"
+            target="_blank"
+            className="text-neutral-300 underline"
+          >
+            Privacy Policy
+          </Link>
+          .
         </p>
       </body>
     </html>

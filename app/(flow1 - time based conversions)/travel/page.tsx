@@ -137,7 +137,7 @@ const OffersPage = () => {
 
   return (
     <div className="1-step px-2">
-      <div className="absolute -top-0 left-1/2 -translate-x-1/2 transform">
+      <div className="absolute -top-3 left-1/2 -translate-x-1/2 transform">
         <span className="relative flex">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-500 opacity-75"></span>
           <span className="relative inline-flex h-7 w-7 items-center justify-center rounded-full bg-orange-500">
@@ -156,7 +156,7 @@ const OffersPage = () => {
           </span>
         </span>
       </div>
-      <p className="pt-4 text-center text-xl font-bold text-orange-500">
+      <p className="pt-4 text-center text-xl font-bold text-orange-700">
         Step 2 - Final Step
       </p>
 
@@ -220,7 +220,7 @@ const OffersPage = () => {
         <div className="flex">
           <h1 className="text-left text-2xl font-bold text-gray-700">
             {/* Completed: {completedTasks}/2 */}
-            Status: Not Completed
+            Completed: 1/2
           </h1>
         </div>
 
