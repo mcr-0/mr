@@ -29,8 +29,8 @@ type Data = {
   error?: string;
 };
 
-const apiKey = "26631|kcvsEEgj6eW96s9pbxu2eQ0FPE0d2fY68vCqlbfe821849da"; // Enter the API key that you have generated on our main Offer API page
-const endpoint = "https://verifysuper.com/api/v2"; // The endpoint show in our main Offer API page
+const apiKey = "26899|zknapf2UkQWLi3IAG0O6itg4Sor6bvoKeyCPebsM228cb54f"; // Enter the API key that you have generated on our main Offer API page
+const endpoint = "https://mazed.gg/api/v2"; // The endpoint show in our main Offer API page
 
 export default async function handler(
   req: NextApiRequest,
