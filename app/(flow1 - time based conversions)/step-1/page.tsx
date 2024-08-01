@@ -118,7 +118,7 @@ const OffersPage = () => {
   }, [completedTasks]);
 
   const handleOfferClick = (offerid: number, event: React.MouseEvent) => {
-    event.preventDefault();
+    // event.preventDefault();
     if (!clickedOffers.has(offerid)) {
       setClickedOffers(new Set(clickedOffers.add(offerid)));
       let countdownTime = 60;
