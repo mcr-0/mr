@@ -11,11 +11,7 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 
-declare function sa_event(eventName: string): any;
-
-export const saEvent = (eventName: string): any => {
-  if (window && window.sa_event) return window.sa_event(eventName);
-};
+import { saEvent } from "@/utils/saEvent";
 
 type Offer = {
   offerid: number;
@@ -138,6 +134,10 @@ const OffersPage = () => {
     }
   };
 
+  const handleEvent = () => {
+    saEvent("example_event");
+  };
+
   if (loading) {
     return <div className="p-8 text-center text-xl">Loading...</div>;
   }
@@ -256,6 +256,7 @@ const OffersPage = () => {
                 </p>
                 <Link
                   href="/step-2000"
+                  onClick={handleEvent}
                   className="focus:shadow-outline mt-2 flex w-full items-center justify-center rounded-2xl bg-blue-700 px-4 py-2 font-bold leading-10 text-white hover:bg-blue-700 focus:outline-none"
                 >
                   <span>Continue</span>
