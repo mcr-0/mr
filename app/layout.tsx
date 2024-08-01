@@ -4,6 +4,8 @@ import "./globals.css";
 import Image from "next/image";
 import * as React from "react";
 import Link from "next/link";
+import Script from "next/script";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -32,7 +34,7 @@ export default function RootLayout({
           ></Image> */}
         </div>
         <div className="fixed bottom-0 left-0 right-0 z-10 h-20 w-full bg-gradient-to-t from-black to-black/0"></div>
-        <header className="mx-auto max-w-7xl bg-gradient-to-b from-black to-black/0 py-1 text-center sm:px-6 lg:px-8">
+        <header className="mx-auto bg-gradient-to-b from-black to-black/0 py-1 text-center sm:px-6 lg:px-8">
           <Link href="/" className="mx-auto block w-16 shadow-xl">
             <Image
               src="/logo.jpg"
@@ -44,9 +46,9 @@ export default function RootLayout({
           </Link>
           <div className="flex items-center justify-center space-x-2 text-center text-xl text-white">
             <div className="">
-              <span className="animate-pulse">Status: </span>
-              <span className="font-semibold text-orange-400">
-                Limited spots left
+              {/* <span className="animate-pulse">Status: </span> */}
+              <span className="animate-pulse text-orange-400">
+                Limited spots available
               </span>
             </div>
             <svg
@@ -77,11 +79,11 @@ export default function RootLayout({
           </p>
         </header>
         <div className="relative p-4">
-          <div className="isolate w-full max-w-xl items-center justify-center rounded-3xl bg-white/70 p-2 shadow-lg ring-1 ring-black/5 backdrop-blur-md">
+          <div className="isolate mx-auto w-full max-w-sm items-center justify-center rounded-3xl bg-white/70 p-2 shadow-lg ring-1 ring-black/5 backdrop-blur-md">
             {children}
           </div>
         </div>
-        <p className="px-4 pb-20 text-center text-xs text-neutral-400">
+        <p className="mx-auto max-w-sm px-4 pb-20 text-center text-xs text-neutral-400">
           We are not affiliated with any of the games or companies shown on this
           website. Use of any logos or trademarks are for reference purposes
           only. By using the website, you agree to our{" "}
@@ -103,6 +105,7 @@ export default function RootLayout({
           .
         </p>
       </body>
+      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
     </html>
   );
 }

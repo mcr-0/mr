@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 export default function LandingPage() {
   return (
-    <div className="rounded-2xl bg-gradient-to-b from-white/80 to-white/40 p-3">
+    <div className="rounded-2xl bg-gradient-to-b from-slate-100/70 to-white/40 p-3">
       <div id="top-info">
         <div className="absolute -top-3 left-1/2 -translate-x-1/2 transform">
           <span className="relative flex">
@@ -33,7 +33,7 @@ export default function LandingPage() {
           </span>
         </div>
         <p className="pt-2 text-center text-xl font-bold text-red-700">
-          Play Games & Level Up!
+          Play Games & Earn!
         </p>
       </div>
       <div
@@ -44,7 +44,7 @@ export default function LandingPage() {
         <div className="bg-blue absolute mx-auto h-56 w-full overflow-hidden rounded-xl bg-cyan-600 shadow ring-1 backdrop-blur-sm">
           <Image
             src="/vb-bg.avif"
-            className="absolute top-0 -ml-48 max-w-lg brightness-110"
+            className="absolute bottom-0 right-0 top-0 -ml-48 max-w-lg brightness-110"
             alt="reward"
             width={1800}
             height={900}
@@ -54,7 +54,7 @@ export default function LandingPage() {
         <div className="bg-blue absolute mx-auto h-56 w-full rotate-3 overflow-hidden rounded-xl bg-cyan-600 shadow ring-1 backdrop-blur-sm">
           <Image
             src="/vb-bg.avif"
-            className="absolute top-0 -ml-48 max-w-lg brightness-110"
+            className="absolute bottom-0 right-0 top-0 -ml-48 max-w-lg brightness-110"
             alt="reward"
             width={1800}
             height={900}
@@ -90,7 +90,7 @@ export default function LandingPage() {
           To Receive Your Reward Access
         </h1>
       </div>
-      <div className="flex w-full flex-wrap gap-4 p-4 md:flex-nowrap">
+      <div className="flex w-full flex-col gap-4 p-4 md:flex-nowrap">
         <div className="grid w-full max-w-sm items-center gap-1.5">
           <Input
             type="text"
@@ -101,7 +101,7 @@ export default function LandingPage() {
         </div>
         <Link href="step-1" className="w-full">
           <Button
-            className="h-16 w-full rounded-full text-lg font-bold"
+            className="h-16 w-full rounded-full bg-blue-600 text-lg font-bold"
             variant="default"
           >
             Get Started <MoveRight className="ml-2 h-5 w-5" />

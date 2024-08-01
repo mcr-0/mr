@@ -4,14 +4,18 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Progress } from "@/components/ui/progress";
-
+import { Button } from "@/components/ui/button";
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 
-import { Button } from "@/components/ui/button";
+declare function sa_event(eventName: string): any;
+
+export const saEvent = (eventName: string): any => {
+  if (window && window.sa_event) return window.sa_event(eventName);
+};
 
 type Offer = {
   offerid: number;
