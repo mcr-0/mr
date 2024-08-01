@@ -114,7 +114,7 @@ const OffersPage = () => {
   }, [countdown]);
 
   const handleOfferClick = (offerid: number, event: React.MouseEvent) => {
-    event.preventDefault();
+    // event.preventDefault();
     if (countdown === null && !clickedOffers.has(offerid)) {
       setClickedOffers(new Set(clickedOffers.add(offerid)));
       if (offerid === 10001) {

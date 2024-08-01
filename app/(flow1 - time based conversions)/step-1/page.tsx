@@ -58,7 +58,7 @@ const OffersPage = () => {
   useEffect(() => {
     const fetchOffers = async () => {
       try {
-        const response = await fetch("/api/fetchOffers-2");
+        const response = await fetch("/api/fetchOffers");
         const data = await response.json();
 
         if (data.error) {
@@ -118,7 +118,7 @@ const OffersPage = () => {
   }, [completedTasks]);
 
   const handleOfferClick = (offerid: number, event: React.MouseEvent) => {
-    event.preventDefault();
+    // event.preventDefault();
     if (!clickedOffers.has(offerid)) {
       setClickedOffers(new Set(clickedOffers.add(offerid)));
       let countdownTime = 60;
