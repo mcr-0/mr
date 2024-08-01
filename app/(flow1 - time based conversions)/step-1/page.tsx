@@ -4,14 +4,14 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Progress } from "@/components/ui/progress";
-
+import { Button } from "@/components/ui/button";
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 
-import { Button } from "@/components/ui/button";
+import { saEvent } from "@/utils/saEvent";
 
 type Offer = {
   offerid: number;
@@ -134,6 +134,10 @@ const OffersPage = () => {
     }
   };
 
+  const handleEvent = () => {
+    saEvent("example_event");
+  };
+
   if (loading) {
     return <div className="p-8 text-center text-xl">Loading...</div>;
   }
@@ -144,7 +148,7 @@ const OffersPage = () => {
 
   return (
     <div className="1-step px-2">
-      <div className="absolute -top-0 left-1/2 -translate-x-1/2 transform">
+      <div className="absolute -top-3 left-1/2 -translate-x-1/2 transform">
         <span className="relative flex">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
           <span className="relative inline-flex h-7 w-7 items-center justify-center rounded-full bg-green-500">
@@ -163,8 +167,8 @@ const OffersPage = () => {
           </span>
         </span>
       </div>
-      <p className="pt-4 text-center text-xl font-bold text-green-500">
-        You&quot;re eligible
+      <p className="pt-4 text-center text-xl font-bold text-green-700">
+        You are eligible!
       </p>
 
       <h3 className="mb-4 mt-4 text-left text-2xl font-semibold text-zinc-900">
@@ -223,7 +227,7 @@ const OffersPage = () => {
           </li>
         ))}
       </ul>
-      <p className="completed-instruction mb-2 text-xs text-neutral-500">
+      <p className="completed-instruction mb-2 text-xs text-neutral-800">
         95% of users complete this in less than 5 minutes
       </p>
       <div className="completed-apps relative my-3 rounded-xl bg-slate-200 p-4 text-left shadow">
@@ -252,6 +256,7 @@ const OffersPage = () => {
                 </p>
                 <Link
                   href="/step-2000"
+                  onClick={handleEvent}
                   className="focus:shadow-outline mt-2 flex w-full items-center justify-center rounded-2xl bg-blue-700 px-4 py-2 font-bold leading-10 text-white hover:bg-blue-700 focus:outline-none"
                 >
                   <span>Continue</span>
