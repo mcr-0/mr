@@ -60,6 +60,7 @@ export default function RootLayout({
                 width={600}
                 alt="logo"
                 className="h-full w-full rounded-md object-cover"
+                priority
               ></Image>
             </Link>
             <div className="flex items-center justify-center space-x-2 text-center text-xl text-white">
