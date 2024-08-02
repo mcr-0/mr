@@ -36,6 +36,26 @@ export default function RootLayout({
             `,
           }}
         />
+        <Script
+          id="gtag-report-conversion"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              function gtag_report_conversion(url) {
+                var callback = function () {
+                  if (typeof(url) != 'undefined') {
+                    window.location = url;
+                  }
+                };
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-11255487453/QIz6CJWVvccZEN23hPcp',
+                    'event_callback': callback
+                });
+                return false;
+              }
+            `,
+          }}
+        />
       </head>
       <body
         className={`${inter.className} relative -z-20 h-full w-full bg-black bg-gradient-to-r from-neutral-900 via-blue-800 to-neutral-900`}
