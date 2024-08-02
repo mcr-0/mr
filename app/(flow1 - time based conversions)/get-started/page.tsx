@@ -36,6 +36,9 @@ type Countdown = {
 };
 
 const OffersPage = () => {
+  useEffect(() => {
+    saEvent("get_started");
+  }, []);
   const [value, setValue] = React.useState("");
 
   const [boostedOffers, setBoostedOffers] = useState<Offer[]>([]);
@@ -132,10 +135,6 @@ const OffersPage = () => {
         [offerid]: { current: countdownTime, initial: countdownTime },
       }));
     }
-  };
-
-  const handleEvent = () => {
-    saEvent("example_event");
   };
 
   if (loading) {
@@ -256,7 +255,6 @@ const OffersPage = () => {
                 </p>
                 <Link
                   href="/step-2000"
-                  onClick={handleEvent}
                   className="focus:shadow-outline mt-2 flex w-full items-center justify-center rounded-2xl bg-blue-700 px-4 py-2 font-bold leading-10 text-white hover:bg-blue-700 focus:outline-none"
                 >
                   <span>Continue</span>

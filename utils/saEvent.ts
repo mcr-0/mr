@@ -1,8 +1,7 @@
-interface Window {
-  sa_event?: (eventName: string) => any;
-}
+declare function sa_event(eventName: string): void;
 
-// Definicja funkcji sa_event
-export const saEvent = (eventName: string): any => {
-  if (window && window.sa_event) return window.sa_event(eventName);
+export const saEvent = (eventName: string) => {
+  if (typeof window !== "undefined" && typeof window.sa_event === "function") {
+    return window.sa_event(eventName);
+  }
 };
