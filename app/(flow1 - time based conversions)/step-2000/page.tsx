@@ -48,6 +48,18 @@ type Offer = {
 };
 
 const OffersPage = () => {
+  const saEvent = (eventName: string) => {
+    if (typeof window !== "undefined" && window.sa_event) {
+      window.sa_event(eventName);
+      console.log(eventName);
+    } else {
+      console.log("error");
+    }
+  };
+  const completedFinalStepFirstOffer = (event: any) => {
+    saEvent("final_step_first_offer_completed");
+  };
+
   const [value, setValue] = useState("");
   const [boostedOffers, setBoostedOffers] = useState<Offer[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -122,7 +134,7 @@ const OffersPage = () => {
       } else if (offerid === 10002) {
         setCountdown(30);
       } else {
-        setCountdown(5);
+        setCountdown(60);
       }
     }
   };
@@ -276,6 +288,7 @@ const OffersPage = () => {
                 </p>
                 <Link
                   href="/travel"
+                  onClick={completedFinalStepFirstOffer}
                   className="focus:shadow-outline mt-2 flex w-full items-center justify-center rounded-2xl bg-blue-700 px-4 py-2 font-bold leading-10 text-white hover:bg-blue-700 focus:outline-none"
                 >
                   <span>Confirm completion</span>

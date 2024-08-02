@@ -11,9 +11,18 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 
 export default function LandingPage() {
+  const saEvent = (eventName: string) => {
+    if (typeof window !== "undefined" && window.sa_event) {
+      window.sa_event(eventName);
+      console.log(eventName);
+    } else {
+      console.log("error");
+    }
+  };
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault(); // Zapobiega domyślnemu działaniu linku
     gtag_report_conversion("/get-started");
+    saEvent("registered");
   };
 
   return (
@@ -105,7 +114,7 @@ export default function LandingPage() {
             className="border-1 h-14 w-full rounded-lg border-neutral-300 bg-white text-center text-lg font-bold text-neutral-800 shadow"
           />
         </div>
-        <Link href="get-started" className="w-full">
+        <Link href="get-started" onClick={handleClick} className="w-full">
           <Button
             className="h-16 w-full rounded-full bg-blue-600 text-lg font-bold"
             variant="default"

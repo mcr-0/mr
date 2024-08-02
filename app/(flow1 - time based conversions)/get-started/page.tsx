@@ -43,7 +43,7 @@ const OffersPage = () => {
     }
   };
   const completedFirstStep = (event: any) => {
-    saEvent("completed_first_step");
+    saEvent("first_step_completed");
   };
 
   const [value, setValue] = React.useState("");
@@ -72,7 +72,7 @@ const OffersPage = () => {
         if (data.error) {
           setError(data.error);
         } else {
-          saEvent("loaded_first_step");
+          saEvent("first_step_loaded");
           const filteredBoostedOffers = data.offers.filter(
             (offer: Offer) => offer.boosted,
           );
