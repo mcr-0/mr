@@ -56,6 +56,15 @@ export default function RootLayout({
             `,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+                window.sa_event = function(eventName) {
+                  console.log('Event:', eventName);
+                };
+              `,
+          }}
+        />
       </head>
       <body
         className={`${inter.className} relative -z-20 h-full w-full bg-black bg-gradient-to-r from-neutral-900 via-blue-800 to-neutral-900`}
