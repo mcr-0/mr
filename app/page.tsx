@@ -99,7 +99,7 @@ export default function LandingPage() {
             className="border-1 h-14 w-full rounded-lg border-neutral-300 bg-white text-center text-lg font-bold text-neutral-800 shadow"
           />
         </div>
-        <Link href="step-1" className="w-full">
+        <Link href="get-started" className="w-full">
           <Button
             className="h-16 w-full rounded-full bg-blue-600 text-lg font-bold"
             variant="default"
