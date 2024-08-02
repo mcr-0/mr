@@ -33,16 +33,15 @@ type Countdown = {
   initial: number;
 };
 
-export const saEvent = (eventName: string) => {
-  if (typeof window !== "undefined" && window.sa_event) {
-    window.sa_event(eventName);
-    console.log(eventName);
-  } else {
-    console.log("error");
-  }
-};
-
 const OffersPage = () => {
+  const saEvent = (eventName: string) => {
+    if (typeof window !== "undefined" && window.sa_event) {
+      window.sa_event(eventName);
+      console.log(eventName);
+    } else {
+      console.log("error");
+    }
+  };
   const completedFirstStep = (event: any) => {
     saEvent("completed_first_step");
   };
