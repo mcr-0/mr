@@ -13,6 +13,7 @@ export default function LandingPage() {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault(); // Zapobiega domyślnemu działaniu linku
     gtag_report_conversion("/get-started");
+    window.sa_event("click_download");
   };
   const handleBeforeDownload = () => {
     if (window.sa_event) {
