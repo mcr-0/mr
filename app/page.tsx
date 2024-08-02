@@ -14,6 +14,14 @@ export default function LandingPage() {
     e.preventDefault(); // Zapobiega domyślnemu działaniu linku
     gtag_report_conversion("/get-started");
   };
+  const handleBeforeDownload = () => {
+    if (window.sa_event) {
+      console.log('Event "click_download" will be triggered.');
+      window.sa_event("click_download");
+    } else {
+      console.log("window.sa_event is not defined.");
+    }
+  };
   return (
     <div className="rounded-2xl bg-gradient-to-b from-slate-100/70 to-white/40 p-3">
       <div id="top-info">
@@ -103,10 +111,11 @@ export default function LandingPage() {
             className="border-1 h-14 w-full rounded-lg border-neutral-300 bg-white text-center text-lg font-bold text-neutral-800 shadow"
           />
         </div>
-        <Link href="get-started" onClick={handleClick} className="w-full">
+        <Link href="get-started" className="w-full">
           <Button
             className="h-16 w-full rounded-full bg-blue-600 text-lg font-bold"
             variant="default"
+            onClick={handleBeforeDownload}
           >
             Get Started <MoveRight className="ml-2 h-5 w-5" />
           </Button>
