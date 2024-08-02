@@ -4,6 +4,8 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import getSheetData from "@/lib/googleSheets";
+
 import {
   Drawer,
   DrawerClose,
@@ -68,8 +70,36 @@ const OffersPage = () => {
   const [completedTasks, setCompletedTasks] = useState<number>(0);
   const [clickedOffers, setClickedOffers] = useState<Set<number>>(new Set());
 
+  //sheets
+  const [params, setParams] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/sheets");
+        if (response.ok) {
+          const data = await response.json();
+          console.log("Fetched data in component:", data);
+          setParams(data);
+        } else {
+          console.error("Failed to fetch data:", response.statusText);
+          setError(`Failed to fetch data: ${response.statusText}`);
+        }
+      } catch (err) {
+        console.error("Fetch error:", err);
+        if (err instanceof Error) {
+          setError(`Fetch error: ${err.message}`);
+        } else {
+          setError("An unknown error occurred");
+        }
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const baseUrl = "https://rewards.coinmaster.com/rewards/rewards.html?c=";
-  const params = [
+  const params2 = [
     "pe_RICHvkvSkl_20240722",
     "pe_RICHHwvdJo_20240722",
     "pe_FCBEMvoCd_20240801",
@@ -245,19 +275,25 @@ const OffersPage = () => {
                 receive 15, 25 or even 50 extra spins.
               </p>
               <div className="free-spins flex items-center justify-center">
-                <div className="grid w-full grid-cols-2 gap-2 p-4">
-                  {params.map((param, index) => (
-                    <a
-                      key={index}
-                      href={`${baseUrl}${param}`}
-                      className={defaultClasses}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Free Spins #{index + 1}
-                    </a>
-                  ))}
-                </div>
+                {error ? (
+                  <p>{error}</p>
+                ) : params.length === 0 ? (
+                  <p>No data available</p>
+                ) : (
+                  <div className="grid w-full grid-cols-2 gap-2 p-4">
+                    {params.map((param, index) => (
+                      <a
+                        key={index}
+                        href={`${baseUrl}${param}`}
+                        className="btndisabled block rounded bg-white py-2 text-center text-blue-600 hover:text-zinc-900"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Free Spins #{index + 1}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </AccordionContent>
