@@ -70,20 +70,21 @@ const OffersPage = () => {
 
   const baseUrl = "https://rewards.coinmaster.com/rewards/rewards.html?c=";
   const params = [
-    "pe_RICHHpWPBO_20240722",
-    "pe_RICHvvqUYO_20240722",
-    "pe_CHATBisXFKC_20240727",
-    "pe_FCBhvMKTZ_20240727",
-    "pe_INSEqdWWZ_20240726",
-    "pe_FCBgVFRaE_20240726",
-    "pe_EMAILcQPNxR_20240721",
-    "pe_FCByVaCRp_20240726",
-    "pe_TWINlHiAr_20240725",
+    "pe_RICHvkvSkl_20240722",
+    "pe_RICHHwvdJo_20240722",
+    "pe_FCBEMvoCd_20240801",
+    "pe_FCBrFtTzg_20240801",
+    "pe_INSrFfVkB_20240801",
+    "pe_LINEvdMfcM_20240729",
+    "pe_CHATBXwVMbK_20240801",
+    "pe_FCBVOzXer_20240731",
+    "pe_EMAILSCiYyJ_20240726",
     "pe_FCBVabUUU_20240725",
-    "pe_FCBBhhVYA_20240725",
-    "pe_INSnvNOaU_20240725",
-    "pe_TWINlHiAr_20240725",
+    "pe_LINEenccmV_20240731",
+    "pe_TWIfusaFG_20240731",
+    "pe_FCBeidlww_20240731",
   ];
+
   const defaultClasses =
     "text-blue-600 hover:text-zinc-900 text-center  btndisabled rounded py-2 bg-white";
 
@@ -227,7 +228,7 @@ const OffersPage = () => {
           </li>
         ))}
       </ul>
-      <Accordion type="single" collapsible>
+      <Accordion type="single" collapsible defaultValue="item-1">
         <AccordionItem value="item-1">
           <AccordionTrigger>
             TIP: Are you out of spins? Click here
