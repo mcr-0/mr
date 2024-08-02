@@ -19,7 +19,7 @@ export default function LandingPage() {
       console.log("error");
     }
   };
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  const handleClick = () => {
     gtag_report_conversion("registered");
     saEvent("registered");
   };
