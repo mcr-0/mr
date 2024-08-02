@@ -96,7 +96,7 @@ export default function RootLayout({
               <div className="">
                 {/* <span className="animate-pulse">Status: </span> */}
                 <span className="animate-pulse text-orange-400">
-                  Limited spots available
+                  Limited spots available...
                 </span>
               </div>
               <svg
