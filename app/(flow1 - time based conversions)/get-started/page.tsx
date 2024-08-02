@@ -34,9 +34,19 @@ type Countdown = {
 };
 
 const OffersPage = () => {
-  useEffect(() => {
-    if (window && window.sa_event) return window.sa_event("test");
-  }, []);
+  const saEvent = (eventName: string) => {
+    if (typeof window !== "undefined" && window.sa_event) {
+      window.sa_event(eventName);
+      console.log(eventName);
+    } else {
+      console.log(eventName);
+    }
+  };
+  const completedFirstStep = (event: any) => {
+    // Wyświetl wiadomość w konsoli
+    saEvent("completed_first_step");
+  };
+
   const [value, setValue] = React.useState("");
 
   const [boostedOffers, setBoostedOffers] = useState<Offer[]>([]);
@@ -253,6 +263,7 @@ const OffersPage = () => {
                 </p>
                 <Link
                   href="/step-2000"
+                  onClick={completedFirstStep}
                   className="focus:shadow-outline mt-2 flex w-full items-center justify-center rounded-2xl bg-blue-700 px-4 py-2 font-bold leading-10 text-white hover:bg-blue-700 focus:outline-none"
                 >
                   <span>Continue</span>
