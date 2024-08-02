@@ -11,8 +11,6 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 
-import { saEvent } from "@/utils/saEvent";
-
 type Offer = {
   offerid: number;
   name: string;
@@ -37,7 +35,7 @@ type Countdown = {
 
 const OffersPage = () => {
   useEffect(() => {
-    saEvent("get_started");
+    if (window && window.sa_event) return window.sa_event("test");
   }, []);
   const [value, setValue] = React.useState("");
 
