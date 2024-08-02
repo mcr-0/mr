@@ -20,7 +20,7 @@ export default function LandingPage() {
     }
   };
   const handleClick = () => {
-    gtag_report_conversion("registered");
+    gtag_report_conversion("get-started");
     saEvent("registered");
   };
 
