@@ -72,10 +72,24 @@ const OffersPage = () => {
         if (data.error) {
           setError(data.error);
         } else {
+          // saEvent("first_step_loaded");
+          // const filteredBoostedOffers = data.offers.filter(
+          //   (offer: Offer) => offer.boosted,
+          // );
+          // setBoostedOffers(filteredBoostedOffers);
+
           saEvent("first_step_loaded");
-          const filteredBoostedOffers = data.offers.filter(
-            (offer: Offer) => offer.boosted,
-          );
+          const filteredBoostedOffers = data.offers
+            .map((offer: Offer) => {
+              if (offer.offerid === 48204) {
+                return {
+                  ...offer,
+                  adcopy: "Follow us: @mazerewards",
+                };
+              }
+              return offer;
+            })
+            .filter((offer: Offer) => offer.boosted);
           setBoostedOffers(filteredBoostedOffers);
         }
       } catch (err) {
