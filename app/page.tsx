@@ -9,20 +9,13 @@ import { Label } from "@/components/ui/label";
 
 // import { Button } from "@nextui-org/button";
 import Link from "next/link";
+
 export default function LandingPage() {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault(); // Zapobiega domyślnemu działaniu linku
     gtag_report_conversion("/get-started");
-    window.sa_event("click_download");
   };
-  const handleBeforeDownload = () => {
-    if (window.sa_event) {
-      console.log('Event "click_download" will be triggered.');
-      window.sa_event("click_download");
-    } else {
-      console.log("window.sa_event is not defined.");
-    }
-  };
+
   return (
     <div className="rounded-2xl bg-gradient-to-b from-slate-100/70 to-white/40 p-3">
       <div id="top-info">
@@ -116,7 +109,6 @@ export default function LandingPage() {
           <Button
             className="h-16 w-full rounded-full bg-blue-600 text-lg font-bold"
             variant="default"
-            onClick={handleBeforeDownload}
           >
             Get Started <MoveRight className="ml-2 h-5 w-5" />
           </Button>
