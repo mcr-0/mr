@@ -33,22 +33,21 @@ type Countdown = {
   initial: number;
 };
 
+export const saEvent = (eventName: string) => {
+  if (typeof window !== "undefined" && window.sa_event) {
+    window.sa_event(eventName);
+    console.log(eventName);
+  } else {
+    console.log("error");
+  }
+};
+
 const OffersPage = () => {
-  const saEvent = (eventName: string) => {
-    if (typeof window !== "undefined" && window.sa_event) {
-      window.sa_event(eventName);
-      console.log(eventName);
-    } else {
-      console.log(eventName);
-    }
-  };
   const completedFirstStep = (event: any) => {
-    // Wyświetl wiadomość w konsoli
     saEvent("completed_first_step");
   };
 
   const [value, setValue] = React.useState("");
-
   const [boostedOffers, setBoostedOffers] = useState<Offer[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -71,10 +70,10 @@ const OffersPage = () => {
       try {
         const response = await fetch("/api/fetchOffers");
         const data = await response.json();
-
         if (data.error) {
           setError(data.error);
         } else {
+          saEvent("loaded_first_step");
           const filteredBoostedOffers = data.offers.filter(
             (offer: Offer) => offer.boosted,
           );
