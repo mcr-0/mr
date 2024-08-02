@@ -30,7 +30,7 @@ type Data = {
 };
 
 const apiKey = "26899|zknapf2UkQWLi3IAG0O6itg4Sor6bvoKeyCPebsM228cb54f"; // Enter the API key that you have generated on our main Offer API page
-const endpoint = "https://unlockcontent.net/api/v2"; // The endpoint show in our main Offer API page
+const endpoint = "https://locked2.com/api/v2"; // The endpoint show in our main Offer API page
 
 export default async function handler(
   req: NextApiRequest,
