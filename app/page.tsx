@@ -1,5 +1,5 @@
 "use client";
-import React, { use } from "react";
+import React, { useState, ChangeEvent, MouseEvent } from "react";
 import Image from "next/image";
 // import { Input } from "@nextui-org/input";
 import { Input } from "@/components/ui/input";
@@ -19,9 +19,23 @@ export default function LandingPage() {
       console.log("error");
     }
   };
-  const handleClick = () => {
-    gtag_report_conversion("get-started");
-    saEvent("registered");
+
+  const [inputValue, setInputValue] = useState("");
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setInputValue(value);
+    setIsButtonDisabled(value.length < 4);
+  };
+
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (isButtonDisabled) {
+      event.preventDefault();
+    } else {
+      gtag_report_conversion("get-started");
+      saEvent("registered");
+    }
   };
 
   return (
@@ -110,13 +124,20 @@ export default function LandingPage() {
             type="text"
             id="email"
             placeholder="Enter Epic Username..."
+            value={inputValue}
+            onChange={handleInputChange}
             className="border-1 h-14 w-full rounded-lg border-neutral-300 bg-white text-center text-lg font-bold text-neutral-800 shadow"
           />
         </div>
-        <Link href="get-started" onClick={handleClick} className="w-full">
+        <Link
+          href={isButtonDisabled ? "#" : "get-started"}
+          onClick={handleClick}
+          className="w-full"
+        >
           <Button
             className="h-16 w-full rounded-full bg-blue-600 text-lg font-bold"
             variant="default"
+            disabled={isButtonDisabled}
           >
             Get Started <MoveRight className="ml-2 h-5 w-5" />
           </Button>
@@ -125,8 +146,7 @@ export default function LandingPage() {
           <strong>We never ask for your password. </strong>
           <br />
           <br />
-          ^Upon completion 2 steps *Gift Cards worth Up To $750 equivalent
-          promotions.
+          ^Upon completion 2 steps
         </p>
       </div>
     </div>
