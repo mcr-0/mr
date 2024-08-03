@@ -85,6 +85,7 @@ const OffersPage = () => {
                 return {
                   ...offer,
                   adcopy: "Follow us: @mazerewards",
+                  img: "tiktok.avif",
                 };
               }
               return offer;
