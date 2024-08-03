@@ -101,7 +101,7 @@ export default function LandingPage() {
           <span className="bg-gradient-to-b from-gray-500 via-indigo-700 to-gray-800 bg-clip-text text-transparent">
             Quick And Easy Steps
           </span>{" "}
-          To Receive Your Reward Access
+          To Receive Reward Access
         </h1>
       </div>
       <div className="flex w-full flex-col gap-4 p-4 md:flex-nowrap">
