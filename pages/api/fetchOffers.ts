@@ -37,14 +37,20 @@ export default async function handler(
   res: NextApiResponse<Data>,
 ) {
   const userAgent = req.headers["user-agent"];
+  const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
 
   if (!userAgent) {
     res.status(400).json({ error: "Missing User Agent" });
     return;
   }
 
+  if (!ip) {
+    res.status(400).json({ error: "Missing IP Address" });
+    return;
+  }
+
   const data = {
-    ip: "23.81.55.243", // Fixed IP address
+    ip: ip.toString(), // Dynamic IP address
     user_agent: userAgent,
     // Enter other optional vars here (ctype, max, etc)
   };
